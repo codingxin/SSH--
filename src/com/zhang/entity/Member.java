@@ -21,23 +21,24 @@ public class Member implements Serializable {
 	private int id;
 	private String title;
 	private String extra;
-
-	private Date updateTime = new Date();
+    private long timestamp;
 
 	public Member() {
 	}
 
-	public Member(String title, String extra) {
+	public Member(String title, String extra,long timestamp) {
 		super();
 		this.title = title;
 		this.extra = extra;
+		this.timestamp=timestamp;
 	}
 
-	public Member(int id, String title, String extra) {
+	public Member(int id, String title, String extra,long timestamp) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.extra = extra;
+		this.timestamp=timestamp;
 	}
 
 	@Id
@@ -51,6 +52,8 @@ public class Member implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	
 
 	@Column(name = "title", nullable = true, length = 30)
 	public String getTitle() {
@@ -69,14 +72,16 @@ public class Member implements Serializable {
 	public void setExtra(String extra) {
 		this.extra = extra;
 	}
-
-	@Column(name = "update_time", nullable = true, length = 30)
-	public Date getUpdateTime() {
-		return updateTime;
+	
+	@Column(name = "timestamp", nullable = true, length = 100)
+	public long getTimestamp() {
+		return timestamp;
 	}
 
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
 	}
+	
+	
 	
 }

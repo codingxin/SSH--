@@ -91,6 +91,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <textarea class="form-control" rows="3" id="update_extra" name="extra" placeholder="请输入备注，100字以内，选填"></textarea>
               </div>
             </div>
+            <div class="form-group">
+              <label for="patrol_date" class="col-sm-2 control-label">日期</label>
+              <div class="col-sm-10">
+                <input type="date" class="form-control pull-right" name="date" id="patrol_date" placeholder="请输入xxxx-xx-xx格式日期">
+              </div>
+            </div>
+            
           </div>
           <!-- /.box-body -->
           <div class="box-footer">
@@ -108,6 +115,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript">
     $(function () {
         var $member_add_form = $("#member_add_form");
+        
         $member_add_form.submit(function () {
 
             var $add_btn = $("#member_add_button");
