@@ -12,33 +12,36 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "admin_changde")
-public class Member implements Serializable {
+@Table(name = "changsha")
+public class Changsha implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private int id;
+	private String place;
 	private String title;
 	private String extra;
-    private long timestamp;
+    private Date updatetime;
+  
 
-	public Member() {
+	public Changsha() {
 	}
 
-	public Member(String title, String extra,long timestamp) {
+	public Changsha(String place,String title, String extra,Date updatetime) {
 		super();
 		this.title = title;
 		this.extra = extra;
-		this.timestamp=timestamp;
+		this.updatetime=updatetime;
 	}
 
-	public Member(int id, String title, String extra,long timestamp) {
+	public Changsha(int id,String place,String title, String extra,Date updatetime) {
 		super();
-		this.id = id;
+		this.id=id;
+		this.place=place;
 		this.title = title;
 		this.extra = extra;
-		this.timestamp=timestamp;
+		this.updatetime=updatetime;
 	}
 
 	@Id

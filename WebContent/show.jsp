@@ -9,7 +9,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>jQuery+css3响应式时间轴页面效果</title>
+<title>常德更新事件列表</title>
 
 <link href="/AdminTianditu/static/show/css/timeline.css" rel="stylesheet" type="text/css" />
 
@@ -19,35 +19,35 @@
 </head>
 <body>
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/db_changde?useUnicode=true&characterEncoding=utf-8"
+     url="jdbc:mysql://localhost:3306/db_tianditu?useUnicode=true&characterEncoding=utf-8"
      user="root"  password="123456"/>
 <sql:query dataSource="${snapshot}" var="result">
-SELECT * from admin_changde;
+SELECT * from changde where place='岳阳';
 </sql:query>
 	<header>
-		<h1>响应式垂直时间表</h1>
+		<h1>常德更新事件列表</h1>
 	</header>
-<table border="1" width="100%">
-<tr>
-   <th>ID</th>
-   <th>站点名</th>
-   <th>站点地址</th>
-</tr>
+<section id="cd-timeline" class="cd-container">
 <c:forEach var="row" items="${result.rows}">
-<tr>
-   <td><c:out value="${row.id}"/></td>
-   <td><c:out value="${row.title}"/></td>
-   <td><c:out value="${row.extra}"/></td>
-   <td class="patrol_date"><fmt:formatDate value='${row.timestamp}' pattern='yyyy-MM-dd'/></td>
-</tr>
+   <div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<img src="/AdminTianditu/static/show/images/cd-icon-picture.svg" alt="Picture">
+			</div>
+			<div class="cd-timeline-content">
+				<h2><c:out value="${row.title}"/></h2>
+				<p><c:out value="${row.extra}"/></p>
+				<a href="http://www.sucaijiayuan.com" class="cd-read-more">查看更多</a>
+				<!-- <span class="cd-date">Jan 14</span> -->
+				<span class="cd-date"><%-- <fmt:formatDate value='${row.timestamp}' pattern='yyyy-MM-dd'/> --%>
+				<c:out value="${row.update_time}"/>
+				</span>
+			</div> 
+		</div>
 </c:forEach>
-</table>
+</section> 
 
-
-
-
-	<section id="cd-timeline" class="cd-container">
-	    <!--  1  -->
+<!-- <section id="cd-timeline" class="cd-container">
+	     1 
 		<div class="cd-timeline-block">
 			<div class="cd-timeline-img cd-picture">
 				<img src="/AdminTianditu/static/show/images/cd-icon-picture.svg" alt="Picture">
@@ -61,7 +61,7 @@ SELECT * from admin_changde;
 			</div> 
 		</div>
 
-   		<!--  2  -->
+   		 2 
 		<div class="cd-timeline-block">
 			<div class="cd-timeline-img cd-movie">
 				<img src="images/cd-icon-movie.svg" alt="Movie">
@@ -75,7 +75,7 @@ SELECT * from admin_changde;
 			</div> 
 		</div> 
 
- 		<!--  3  -->	
+ 		 3 	
 		<div class="cd-timeline-block">
 			<div class="cd-timeline-img cd-picture">
 				<img src="images/cd-icon-picture.svg" alt="Picture">
@@ -104,7 +104,7 @@ SELECT * from admin_changde;
 
 		
 		
-	</section> 
+	</section>  -->
 				 
 <script>
 <!-- $(function(){

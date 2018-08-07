@@ -73,7 +73,7 @@ body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 	<ol class="breadcrumb">
-		<li><a href="/AdminChangde/main/showInfo"><i
+		<li><a href="/AdminTianditu/main/showInfo"><i
 				class="fa fa-dashboard"></i> 首页</a></li>
 		<li>事件管理</li>
 		<li class="active">事件列表</li>
@@ -112,22 +112,17 @@ body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
 								<th>更新时间</th>
 							</tr>
 						</thead>
-						<c:if test="${memberList!=null }">
+						<c:if test="${changdeList!=null }">
 							<%--  varStatus是<c:forEach>jstl循环标签的一个属性，varStatus属性。 例如实现隔行变色标志--%>
-							<c:forEach var="member" items="${memberList }" varStatus="status">
+							<c:forEach var="member" items="${changdeList }" varStatus="status">
 								<tr>
 									<td>${status.index+1 }</td>
 									<td class="update_title">${member.title }</td>
 									<td class="update_extra">${member.extra }</td>
 								
-									<% SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd"); 
-									Long time = new Long(1533225600)*1000; 
-									String d = format.format(time); 
-									Date date = format.parse(d); 
-									System.out.println("前台java代码Format To String(Date):" + d); 
-									System.out.println("前台java代码Format To Date:" +date);  %>
+		
 									
-									<td><fmt:formatDate value='${member.timestamp}' pattern='yyyy-MM-dd'/></td>
+									<td class="patrol_date"><fmt:formatDate value='${member.updatetime}' pattern='yyyy-MM-dd'/></td>
 									<td><a data-id="${member.id }" class="update"
 										href="javascript:void(0)" data-toggle="modal"
 										data-remote="false" data-target="#member_update_modal"
@@ -138,7 +133,7 @@ body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
 								</tr>
 							</c:forEach>
 						</c:if>
-						<c:if test="${memberList==null }">
+						<c:if test="${changdeList==null }">
 							<tr>
 								<td colspan="8">无记录！</td>
 							</tr>
@@ -197,7 +192,7 @@ body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
 							<div class="form-group">
 								<label for="patrol_date" class="col-sm-2 control-label">更新日期</label>
 								<div class="col-sm-10">
-									<input type="date" class="form-control pull-right" name="date"
+									<input type="date" class="form-control pull-right" name="updatetime"
 										id="patrol_date" placeholder="请输入xxxx-xx-xx格式日期">
 								</div>
 							</div>
@@ -229,7 +224,7 @@ body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
 									var id = $(this).data("id");
 									$
 											.ajax({
-												url : "/AdminChangde/member/del",
+												url : "/AdminTianditu/changde/del",
 												type : "POST",
 												data : {
 													id : id
@@ -239,7 +234,7 @@ body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
 													alert(data.msg);
 													if (data.success) {
 														//菜单栏当前选中
-														window.location.href = "/AdminChangde/member/showList";
+														window.location.href = "/AdminTianditu/changde/showList";
 														$now_selected = $("ul.treeview-menu>li.active>a");
 														$now_selected
 																.trigger("click");
@@ -262,11 +257,14 @@ body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
 			$(".update").click(
 					function() {
 						$("#member_id").val($(this).data("id"));
-						$("#update_title").val(
-								$(this).parent().prevAll(".update_title")
+						$("#update_title").val($(this).parent().prevAll(".update_title")
 										.text());
 						$("#update_extra").val(
 								$(this).parent().prevAll(".update_extra")
+										.text());
+						//通过css的class名  找到patrol_data标签
+						$("#patrol_date").val(
+								$(this).parent().prevAll(".patrol_date")
 										.text());
 					});
 
@@ -276,13 +274,14 @@ body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
 					.submit(function() {
 
 						var $update_btn = $("#member_update_button");
-
+						var md=$member_update_form.serialize();
+						alert(md);
 						$
 								.ajax({
-									url : "/AdminChangde/member/update",
+									url : "/AdminTianditu/changde/update",
 									type : "POST",
 									dataType : "json",
-									data : $member_update_form.serialize(),
+									data : md,
 									beforeSend : function() {
 										$update_btn.button("loading");
 									},
@@ -293,7 +292,7 @@ body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
 										alert(data.msg);
 										if (data.success) {
 											//菜单栏当前选中
-											window.location.href = "/AdminChangde/member/showList";
+											window.location.href = "/AdminTianditu/changde/showList";
 											$now_selected = $("ul.treeview-menu>li.active>a");
 											$now_selected.trigger("click");
 											$("#member_update_modal").modal(

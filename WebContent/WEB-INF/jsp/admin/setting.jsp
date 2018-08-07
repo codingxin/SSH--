@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <ol class="breadcrumb">
-    <li><a href="/AdminChangde/main/showInfo"><i class="fa fa-dashboard"></i> 首页</a></li>
+    <li><a href="/AdminTianditu/main/showInfo"><i class="fa fa-dashboard"></i> 首页</a></li>
     <li>系统设置</li>
     <li class="active">管理员列表</li>
   </ol>
@@ -318,7 +318,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             if (confirm("确认要删除吗？")) {
                 var id = $(this).data("id");
                 $.ajax({
-                    url: "/AdminChangde/admin/del",
+                    url: "/AdminTianditu/admin/del",
                     type: "POST",
                     data: {id: id},
                     dataType: "json",
@@ -326,7 +326,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         alert(data.msg);
                         if (data.success) {
                             //菜单栏当前选中
-                        	window.location.href="/AdminChangde/admin/showSetting";
+                        	window.location.href="/AdminTianditu/admin/showSetting";
                             $now_selected = $("ul.treeview-menu>li.active>a");
                             $now_selected.trigger("click");
                         }
@@ -358,7 +358,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             var $update_btn = $("#admin_update_button");
 
             $.ajax({
-                url: "/AdminChangde/admin/update",
+                url: "/AdminTianditu/admin/update",
                 type: "POST",
                 dataType: "json",
                 data: $admin_update_form.serialize(),
@@ -372,7 +372,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     alert(data.msg);
                     if (data.success) {
                         //菜单栏当前选中
-                        window.location.href="/AdminChangde/admin/showSetting";
+                        window.location.href="/AdminTianditu/admin/showSetting";
                         $now_selected = $("ul.treeview-menu>li.active>a");
                         $now_selected.trigger("click");
                         $("#admin_update_modal").modal("hide");
@@ -419,7 +419,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             var $add_btn = $("#admin_add_button");
 
             $.ajax({
-                url: "/AdminChangde/admin/insert",
+                url: "/AdminTianditu/admin/insert",
                 type: "POST",
                 dataType: "json",
                 data: $admin_add_form.serialize(),
@@ -433,7 +433,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     alert(data.msg);
                     if (data.success) {
                         //菜单栏当前选中
-                        window.location.href="/AdminChangde/admin/showSetting";
+                        window.location.href="/AdminTianditu/admin/showSetting";
                         $now_selected = $("ul.treeview-menu>li.active>a");
                         $now_selected.trigger("click");
                         $("#admin_add_modal").modal("hide");
@@ -490,7 +490,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             var $change_btn = $("#admin_change_button");
 
             $.ajax({
-                url: "/AdminChangde/admin/changePassword",
+                url: "/AdminTianditu/admin/changePassword",
                 type: "POST",
                 dataType: "json",
                 data: $admin_change_form.serialize(),
@@ -504,7 +504,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     alert(data.msg);
                     if (data.success) {
                         //菜单栏当前选中
-                        window.location.href="/AdminChangde/admin/showSetting";
+                        window.location.href="/AdminTianditu/admin/showSetting";
                         $now_selected = $("ul.treeview-menu>li.active>a");
                         $now_selected.trigger("click");
                         $("#admin_change_password_modal").modal("hide");

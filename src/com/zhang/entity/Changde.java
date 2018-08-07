@@ -13,43 +13,43 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "admin_changde")
-public class Member implements Serializable {
+public class Changde implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int id;
+	private Integer id;
 	private String title;
 	private String extra;
-    private long timestamp;
+    private Date updatetime;
 
-	public Member() {
+	public Changde() {
 	}
 
-	public Member(String title, String extra,long timestamp) {
+	public Changde(String title, String extra,Date update_time) {
 		super();
 		this.title = title;
 		this.extra = extra;
-		this.timestamp=timestamp;
+		this.updatetime=update_time;
 	}
 
-	public Member(int id, String title, String extra,long timestamp) {
+	public Changde(Integer id, String title, String extra,Date update_time) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.extra = extra;
-		this.timestamp=timestamp;
+		this.updatetime=update_time;
 	}
 
 	@Id
 	@Column(name = "id", nullable = false, unique = true)
 	@GenericGenerator(name = "generator", strategy = "native")
 	@GeneratedValue(generator = "generator")
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
@@ -73,13 +73,18 @@ public class Member implements Serializable {
 		this.extra = extra;
 	}
 	
-	@Column(name = "timestamp", nullable = true, length = 100)
-	public long getTimestamp() {
-		return timestamp;
+	@Column(name = "update_time", nullable = true, length = 100)
+	public Date getUpdatetime() {
+		return updatetime;
 	}
 
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
+	public void setUpdatetime(Date updatetime) {
+		this.updatetime = updatetime;
+	}
+
+	@Override
+	public String toString() {
+		return "Changde [id=" + id + ", title=" + title + ", extra=" + extra + ", updatetime=" + updatetime + "]";
 	}
 	
 	

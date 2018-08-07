@@ -2,14 +2,14 @@ package com.zhang.dto;
 import java.util.Date;
 
 public class MemberDto {
-	private int id;
+	private Integer id;
 	private String title;
 	private String extra;
-    private Date timestamp;
-	public int getId() {
+    private String  updatetime;
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getTitle() {
@@ -24,15 +24,19 @@ public class MemberDto {
 	public void setExtra(String extra) {
 		this.extra = extra;
 	}
-	public Date getTimestamp() {
-		return timestamp;
+	public String getUpdatetime() {
+		return updatetime;
 	}
-	public void setTimestamp(Date timestamp) {
-		this.timestamp = timestamp;
+	public void setUpdatetime(String updatetime) {
+		this.updatetime = updatetime;
 	}
 	@Override
 	public String toString() {
-		return "MemberDto [id=" + id + ", title=" + title + ", extra=" + extra + ", timestamp=" + timestamp + "]";
+		return "MemberDto [id=" + id + ", title=" + title + ", extra=" + extra + ", updatetime=" + updatetime + "]";
+	}
+	public MemberDto() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
     
     

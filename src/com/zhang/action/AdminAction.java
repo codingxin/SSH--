@@ -177,7 +177,7 @@ public class AdminAction {
 		PageBean pageBean=new PageBean(Integer.parseInt(page),10);
 		List<Admin> adminList=adminService.find(pageBean, s_admin);
 		int total=adminService.findAll().size();
-		String pageCode=PageUtil.rootPageTion("/AdminChangde/admin/showSetting",total, pageBean.getPage(),pageBean.getPageSize(),null,null);
+		String pageCode=PageUtil.rootPageTion("/AdminTianditu/admin/showSetting",total, pageBean.getPage(),pageBean.getPageSize(),null,null);
 		mav.addObject("pageCode", pageCode);
 		mav.addObject("adminList", adminList);
 		return mav;

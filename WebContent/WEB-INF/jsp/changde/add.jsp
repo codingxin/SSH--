@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <ol class="breadcrumb">
-    <li><a href="/AdminChangde/main/showInfo"><i class="fa fa-dashboard"></i> 首页</a></li>
+    <li><a href="/AdminTianditu/main/showInfo"><i class="fa fa-dashboard"></i> 首页</a></li>
     <li>人员管理</li>
     <li class="active">添加人员</li>
   </ol>
@@ -77,8 +77,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form class="form-horizontal" method="post" id="member_add_form">
+        <!--  action="/AdminTianditu/changde/insert" -->
+        <form id="member_add_form" class="form-horizontal" method="post" >
           <div class="box-body">
+   
             <div class="form-group">
               <label for="update_title" class="col-sm-2 control-label">更新标题</label>
               <div class="col-sm-10">
@@ -94,15 +96,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="form-group">
               <label for="patrol_date" class="col-sm-2 control-label">日期</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control pull-right" name="date" id="patrol_date" placeholder="请输入xxxx-xx-xx格式日期">
+                <input type="date" class="form-control pull-right" name="updatetime" id="patrol_date" placeholder="请输入xxxx-xx-xx格式日期">
               </div>
-            </div>
+            </div> 
             
           </div>
           <!-- /.box-body -->
           <div class="box-footer">
             <button type="reset" class="btn btn-default">重置</button>
-            <button type="submit" class="btn btn-info pull-right" id="member_add_button" data-loading-text="添加中...">添加</button>
+            <!--  -->
+            <button id="member_add_button" type="submit" class="btn btn-info pull-right"  data-loading-text="添加中...">添加</button>
           </div>
           <!-- /.box-footer -->
         </form>
@@ -114,17 +117,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- /.content -->
 <script type="text/javascript">
     $(function () {
-        var $member_add_form = $("#member_add_form");
-        
+    	var $member_add_form = $("#member_add_form");
         $member_add_form.submit(function () {
-
             var $add_btn = $("#member_add_button");
-
+            var md=$("#member_add_form").serialize();
+            alert($("#member_add_form").serialize());
             $.ajax({
-                url: "/AdminChangde/member/insert",
+                url: "/AdminTianditu/changde/insert",
                 type: "POST",
                 dataType: "json",
-                data: $member_add_form.serialize(),
+                data: md,
+                //contentType: "application/json; charset=utf-8",
                 beforeSend: function () {
                     $add_btn.button("loading");
                 },
@@ -133,7 +136,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 },
                 success: function (data) {
                     alert(data.msg);
-                    if (data.success) {
+                    //更新成功后返回列表
+                	window.location.href = "/AdminTianditu/changde/showList";
+              if (data.success) {
                         $member_add_form[0].reset();
                     }
                 },

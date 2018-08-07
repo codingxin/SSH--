@@ -20,7 +20,7 @@
 
 <!-- logo -->
 <link rel="shortcut icon"
-	href="/AdminChangde/static/dist/img/favicon.ico">
+	href="/AdminTianditu/static/dist/img/favicon.ico">
 <!-- jQuery 3.1.1 -->
 <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
@@ -50,7 +50,7 @@
 <link rel="stylesheet" href="static/dist/css/skins/_all-skins.min.css">
 
 <%-- <!-- logo -->
-  <link rel="shortcut icon" href="/AdminChangde/static/dist/img/favicon.ico">
+  <link rel="shortcut icon" href="/AdminTianditu/static/dist/img/favicon.ico">
   <!--  jQuery 3.1.1 -->
   <script src="static/plugins/jQuery/jquery-3.1.1.min.js"></script>
   <!--  Bootstrap 3.3.6  -->
@@ -166,7 +166,7 @@ body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
 								<a href="javascript:void(0)" class="btn btn-success btn-flat">修改信息</a>
 							</div>
 							<div class="pull-right">
-								<a href="/AdminChangde/admin/logout"
+								<a href="/AdminTianditu/admin/logout"
 									class="btn btn-info btn-flat">退出登录</a>
 							</div>
 						</li>
@@ -185,55 +185,38 @@ body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="/AdminChangde/main/showInfo" target="container"><i
+					<li><a href="/AdminTianditu/main/showInfo" target="container"><i
 							class="fa fa-circle-o"></i> 系统总览 </a></li>
 				</ul></li>
+				
 			<li class="treeview"><a href="#"> <i class="fa fa-users"></i>
-					<span>更新日志</span> <span class="pull-right-container"> <i
+					<span>常德日志</span> <span class="pull-right-container"> <i
 						class="fa fa-angle-left pull-right"></i>
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="/AdminChangde/member/showAdd" target="container"><i
+					<li><a href="/AdminTianditu/changde/showAdd" target="container"><i
 							class="fa fa-circle-o"></i> 添加日志 </a></li>
-					<li><a href="/AdminChangde/member/showList" target="container"><i
-							class="fa fa-circle-o"></i> 记录列表 </a></li>
-					<li><a href="/AdminChangde/member/showList" target="container"><i
-							class="fa fa-circle-o"></i> 常德日志 </a></li>
-					<li><a href="/AdminChangde/member/showList" target="container"><i
-							class="fa fa-circle-o"></i> 岳阳日志 </a></li>
-					<li><a href="/AdminChangde/member/showList" target="container"><i
-							class="fa fa-circle-o"></i> 郴州日志 </a></li>
-					<li><a href="/AdminChangde/member/showList" target="container"><i
-							class="fa fa-circle-o"></i> 长沙日志</a></li>
-					<li><a href="/AdminChangde/member/showList" target="container"><i
-							class="fa fa-circle-o"></i> 常德日志 </a></li>
+					<li><a href="/AdminTianditu/changde/showList" target="container"><i
+							class="fa fa-circle-o"></i> 日志列表 </a></li>
 				</ul></li>
+				
 			<li class="treeview"><a href="#"> <i class="fa fa-edit"></i>
-					<span>巡更管理</span> <span class="pull-right-container"> <i
+					<span>岳阳日志</span> <span class="pull-right-container"> <i
 						class="fa fa-angle-left pull-right"></i>
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="/AdminChangde/patrol/showTaskAdd" target="container"><i
-							class="fa fa-circle-o"></i> 指派任务 </a></li>
-					<li><a href="/AdminChangde/patrol/showTaskList" target="container"><i
-							class="fa fa-circle-o"></i> 任务列表 </a></li>
-					<li><a href="/AdminChangde/patrol/showRecordList"
-						target="container"><i class="fa fa-circle-o"></i> 巡更记录 </a></li>
+					<li><a href="/AdminTianditu/yueyang/showAdd" target="container"><i
+							class="fa fa-circle-o"></i> 添加日志 </a></li>
+					<li><a href="/AdminTianditu/yueyang/showList" target="container"><i
+							class="fa fa-circle-o"></i> 日志列表 </a></li>
 				</ul></li>
 
-			<li class="treeview"><a href="#"> <i class="fa fa-users"></i>
-					<span>日志展示</span> <span class="pull-right-container"> <i
-						class="fa fa-angle-left pull-right"></i>
-				</span>
-			</a>
-				<ul class="treeview-menu">
-					<li><a href="/AdminChangde/member/showAdd" target="container"><i
-							class="fa fa-circle-o"></i> 常德 </a></li>
-					<li><a href="/AdminChangde/member/showList" target="container"><i
-							class="fa fa-circle-o"></i> 岳阳 </a></li>
-				</ul></li>
+
+
+
+
 
 			<li class="treeview"><a href="#"> <i class="fa fa-gears"></i>
 					<span>系统设置</span> <span class="pull-right-container"> <i
@@ -241,9 +224,9 @@ body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="/AdminChangde/admin/showSetting"
+					<li><a href="/AdminTianditu/admin/showSetting"
 						target="container"><i class="fa fa-circle-o"></i> 管理员设置 </a></li>
-					<li><a href="/AdminChangde/admin/showMessage"
+					<li><a href="/AdminTianditu/admin/showMessage"
 						target="container"><i class="fa fa-circle-o"></i> 关于我们 </a></li>
 				</ul></li>
 			<li class="header">THEMES</li>
@@ -260,7 +243,7 @@ body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<iframe name="container" style="zoom: 1;" height="650px;"
-				src="/AdminChangde/main/showInfo" frameBorder="0" width="100%"></iframe>
+				src="/AdminTianditu/main/showInfo" frameBorder="0" width="100%"></iframe>
 		</div>
 		<!-- /.content-wrapper -->
 		<footer class="main-footer text-center"> <strong> <a

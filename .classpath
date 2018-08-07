@@ -81,5 +81,6 @@
 	<classpathentry kind="lib" path="/Xungeng/WebContent/WEB-INF/lib/standard.jar"/>
 	<classpathentry kind="lib" path="/Xungeng/WebContent/WEB-INF/lib/ueditor.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/jsp/Show/index.jsp"/>
+	<classpathentry kind="lib" path="jackson-module-jaxb-annotations-2.5.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

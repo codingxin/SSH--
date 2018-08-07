@@ -35,7 +35,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 			return true;
 		}
 
-		response.sendRedirect("/AdminChangde/login");
+		response.sendRedirect("/AdminTianditu/login");
 		return false;
 	}
 

@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <ol class="breadcrumb">
-    <li><a href="/AdminChangde/main/showInfo"><i class="fa fa-dashboard"></i> 首页</a></li>
+    <li><a href="/AdminTianditu/main/showInfo"><i class="fa fa-dashboard"></i> 首页</a></li>
     <li class="active">系统总览</li>
   </ol>
 </section>

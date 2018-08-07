@@ -8,13 +8,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>无线巡更系统管理</title>
+    <title>天地图后台管理</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="<%=basePath%>">
-    <link rel="shortcut icon" href="/AdminChangde/static/dist/img/favicon.ico">
-    <link rel="stylesheet" href="/AdminChangde/static/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/AdminChangde/static/dist/css/login.css">
+    <link rel="shortcut icon" href="/AdminTianditu/static/dist/img/favicon.ico">
+    <link rel="stylesheet" href="/AdminTianditu/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/AdminTianditu/static/dist/css/login.css">
     
     <style>
         body {
@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <div class="container w-xxl w-auto-xs">
-    <a href="" class="navbar-brand block m-t m-b-sm">无线巡更系统管理</a>
+    <a href="" class="navbar-brand block m-t m-b-sm">天地图后台管理</a>
     <div class="m-b-xxl">
         <div class="wrapper text-center">
             <strong>Sign in</strong>
@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="text-center">
         <p>
             <small class="text-muted">
-                <a href="" target="_blank">云卫士</a><br> All Rights Reserved &copy; 2016
+                <a href="" target="_blank">湖南天地图所有</a><br> All Rights Reserved &copy; 2016
             </small>
         </p>
     </div>
@@ -112,7 +112,7 @@ $(function () {
         });*/
         var login_btn = $("#login_btn");
         $.ajax({
-            url: "/AdminChangde/admin/login",
+            url: "/AdminTianditu/admin/login",
             type: "POST",
             data: {
                 userName: userName,
@@ -132,7 +132,7 @@ $(function () {
             },
             success: function (data) {
             	if(data.result==""){
-            		window.location.href ="/AdminChangde/admin/index";
+            		window.location.href ="/AdminTianditu/admin/index";
             	}else{
                     show_error(data.result);
             	}

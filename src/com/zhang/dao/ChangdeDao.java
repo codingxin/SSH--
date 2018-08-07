@@ -11,11 +11,11 @@ import org.hibernate.Transaction;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.zhang.entity.Member;
+import com.zhang.entity.Changde;
 import com.zhang.entity.PageBean;
 
 @Repository
-public class MemberDao {
+public class ChangdeDao {
 
 	@Resource
 	private HibernateTemplate hibernateTemplate;
@@ -39,55 +39,56 @@ public class MemberDao {
 		this.sessionFactory = sessionFactory;
 	}
 
-	public boolean save(Member member) {
+	public boolean save(Changde changde) {
 		Session session = getHibernateTemplate().getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
-		session.save(member);
+		session.save(changde);
 		tx.commit();
 		session.close();
 		return true;
 	}
 
-	public boolean update(Member member) {
+	public boolean update(Changde changde) {
 		Session session = getHibernateTemplate().getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
-		session.merge(member);
+		session.merge(changde);
 		tx.commit();
 		session.close();
 		return true;
 	}
 
 	public boolean delete(int id) {
-		Member member = this.findById(id);
+		Changde changde = this.findById(id);
 		Session session = getHibernateTemplate().getSessionFactory().openSession();
 		Transaction tr = session.beginTransaction();
-		session.delete(member);
+		session.delete(changde);
 		tr.commit();
 		session.close();
 		return true;
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Member> find(PageBean pageBean, Member s_member) {
-		StringBuffer sb = new StringBuffer("from Member");
+	public List<Changde> find(PageBean pageBean, Changde s_changde) {
+		//from +  Entity 实体类名称
+		StringBuffer sb = new StringBuffer("from Changde");
 		Session session = getHibernateTemplate().getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
 		Query q = session.createQuery(sb.toString());
 		q.setFirstResult(pageBean.getStart());
 		q.setMaxResults(pageBean.getPageSize());
-		List<Member> memberList = q.list();
+		List<Changde> changdeList = q.list();
 		tx.commit();
 		session.close();
-		return memberList;
+		return changdeList;
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Member> findAll() {
-		String queryString = "from Member";
-		return (List<Member>) this.hibernateTemplate.find(queryString);
+	public List<Changde> findAll() {
+		String queryString = "from Changde";
+		return (List<Changde>) this.hibernateTemplate.find(queryString);
 	}
 
-	public Member findById(int id) {
-		return (Member) this.hibernateTemplate.get(Member.class, id);
+	public Changde findById(int id) {
+		return (Changde) this.hibernateTemplate.get(Changde.class, id);
 	}
 }
